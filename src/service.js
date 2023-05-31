@@ -33,12 +33,12 @@
 // export default service
 import axios from "axios";
 import { getToken } from '@/untils/setToken.js'
-import { Promise } from 'core-js'
-import { Message } from '@/untils/setToken.js'
+import { Message } from 'element-ui'
 
 
 const service = axios.create({
     baseURL:'/api',
+    timeout: 3000
 })
 
 // 添加请求拦截器
@@ -65,3 +65,5 @@ service.interceptors.response.use(function (response) {
   });
 
   export default service
+
+  

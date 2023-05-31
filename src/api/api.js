@@ -28,3 +28,9 @@ export function studentDel(id){
 }
 
 //学生列表查询重置
+export function search(name){
+    return service({
+        method:'get',
+        url:`/students?name=${name}`
+    })
+}

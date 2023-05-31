@@ -40,7 +40,7 @@
 </template>
   
   <script>
-  import { student,studentDel } from '../../api/api';
+  import { student,studentDel,search } from '../../api/api';
 
   export default {
     data() {
@@ -69,7 +69,7 @@
           if(res.data.status === 200) {
             this.tableData = res.data.data
             this.total = res.data.total
-            this.tableData.forEach(item => {
+            this.tableData.forEach((item) => {
               //尽量不要动原数据
               item.sex === 1 ? item.sex_text = '男' : item.sex_text = '女'
               item.state === "1" ? item.state_text = '已入学' : item.state_text === "2" ? item.state_text = '未入学' : item.state_text = '休学中'
@@ -94,8 +94,20 @@
           })
         },
         find(){
-          console.log(this.formInline.name);
-          this.getData(this.formInline.name)
+          search(this.formInline.name).then((res) => {
+          if(res.data.status === 200) {
+            console.log(this.formInline.name);
+            this.tableData = res.data.data
+            this.total = res.data.total
+            this.tableData.forEach((item) => {
+              //尽量不要动原数据
+              item.sex === 1 ? item.sex_text = '男' : item.sex_text = '女'
+              item.state === "1" ? item.state_text = '已入学' : item.state_text === "2" ? item.state_text = '未入学' : item.state_text = '休学中'
+            })
+          }
+
+          })
+
         },
         reset(){
           this.formInline = {}
