@@ -1,30 +1,42 @@
 <template>
-  <div class="hello">
-    <h1>hello</h1>
-      <el-button type="primary" round>主要按钮</el-button>
-      <el-button type="success" round>成功按钮</el-button>
-      <el-button type="info" round>信息按钮</el-button>
-      <el-button type="warning" round>警告按钮</el-button>
-      <el-button type="danger" round>危险按钮</el-button>
-      <i class="fa fa-users"></i>
+  <div class="home">
+    <Header></Header>
+    <el-container class="content">
+      <Menu></Menu>
+      <el-container class="content">
+      <el-main>Main</el-main>
+    <el-footer><Footer></Footer></el-footer>
+    </el-container>
+  </el-container>
+
   </div>
 </template>
 
 <script>
+import Header from './common/Header.vue';
+import Footer from './common/Footer.vue';
+import Menu from './common/Menu.vue';
+
 export default {
   name: 'Home',
-  props: {
-    msg: String
+  components:{
+    Header,
+    Footer,
+    Menu
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
-.hello{
-  background-color: yellow;
-  .el-button{
-    color:red;
+.home{
+  width: 100%;
+  height: 100%;
+  .content {
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    bottom: 0;
   }
 }
 </style>

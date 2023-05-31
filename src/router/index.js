@@ -20,6 +20,11 @@ export default new Router({
             component: () => import('../components/Login.vue')    
         },
         {
+            path:"*",
+            name:'NotFound',
+            component: () => import('../components/NotFound.vue')    
+        },
+        {
             path:"/home",
             name:'Home',
             component: () => import('../components/Home.vue')    
