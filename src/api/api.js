@@ -9,3 +9,22 @@ export function login(data){
         data
     })
 }
+
+//学生列表的查询接口
+export function student(parms){
+    return service({
+        method:'get',
+        url:'/students',
+        parms
+    })
+}
+
+//学生列表的删除接口
+export function studentDel(id){
+    return service({
+        method:'delete',
+        url:`/students/${id}`
+    })
+}
+
+//学生列表查询重置

@@ -3,9 +3,14 @@
     <Header></Header>
     <el-container class="content">
       <Menu></Menu>
-      <el-container class="content">
-      <el-main>Main</el-main>
-    <el-footer><Footer></Footer></el-footer>
+      <el-container>
+      <el-main>
+        <Breadcrumb></Breadcrumb>
+        <div class="count">
+          <router-view></router-view>
+        </div>
+      </el-main>
+      <el-footer><Footer></Footer></el-footer>
     </el-container>
   </el-container>
 
@@ -16,13 +21,15 @@
 import Header from './common/Header.vue';
 import Footer from './common/Footer.vue';
 import Menu from './common/Menu.vue';
+import Breadcrumb from './common/Breadcrumb.vue'
 
 export default {
   name: 'Home',
   components:{
     Header,
     Footer,
-    Menu
+    Menu,
+    Breadcrumb
   }
 }
 </script>
@@ -37,6 +44,9 @@ export default {
     width: 100%;
     top: 60px;
     bottom: 0;
+    .cont{
+      margin: 20px;
+    }
   }
 }
 </style>
