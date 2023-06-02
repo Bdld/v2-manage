@@ -105,7 +105,6 @@
               item.state === "1" ? item.state_text = '已入学' : item.state_text === "2" ? item.state_text = '未入学' : item.state_text = '休学中'
             })
           }
-
           })
 
         },
